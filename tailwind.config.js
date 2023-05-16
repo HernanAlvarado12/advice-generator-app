@@ -7,6 +7,9 @@ export default {
   },
   theme: {
     extend: {
+      screens: {
+        ts: '550px'
+      },
       spacing: {
         '0.2': '0.2rem',
         '0.5': '0.5rem',
