@@ -13,13 +13,17 @@ const Main = () => {
     const [text, setText] = useState('')
 
     useEffect(() => {
-        fetch(URL_ROOTER)
+        const controller = new AbortController()
+
+        fetch(URL_ROOTER, { signal: controller.signal })
             .then(response => response.json())
             .then(json => {
                 const { slip: { id, advice } } = json
                 setNumber(id)
                 setText(advice)
-            })
+            }).catch(error => error)
+
+        return () => controller.abort()
     }, [generate])
 
     const handleClick = () => {
