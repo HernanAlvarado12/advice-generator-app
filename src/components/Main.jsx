@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react"
 import { Title } from "./Title"
+import { Picture } from "./Picture"
 import mobile from "../assets/mobile.svg"
 import desktop from "../assets/desktop.svg"
 import dice from "../assets/dice.svg"
-import { Picture } from "./Picture"
 
 const URL_ROOTER = 'https://api.adviceslip.com/advice'
 
 const Main = () => {
     const [generate, setGenerate] = useState(false)
     const [number, setNumber] = useState(0)
-    const [text, setText] = useState("It is easy to sit up and take notice, what's difficult is getting up and taking action")
+    const [text, setText] = useState('')
 
     useEffect(() => {
         fetch(URL_ROOTER)
